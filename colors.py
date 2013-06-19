@@ -6,7 +6,6 @@ import numpy as np
 import pylab as pl
 import re
 from sklearn.linear_model import LogisticRegression
-from sklearn.cross_validation import cross_val_score
 
 # if we do nothing, there are 256 * 256 * 256 = 16M possible RGB colors
 # we don't want that many colors, so we'll use this many buckets for each of R, G, and B
@@ -65,7 +64,7 @@ shuffle(data)
 X = np.array([cd for (cd,_y,f) in data])
 y = np.array([_y for (cd,_y,f) in data])
 
-# and split it into a training set and a test set (really a cross-validation set)
+# and split it into a training set and a test set
 train_split = int(len(data) * 4.0 / 5.0)
 
 X_train = X[:train_split]
